@@ -1,0 +1,52 @@
+<article id='home'>
+    <p class='page-title'>Let's play BlackJack lads...</p>
+
+    <hr/>
+
+    <section class='game-actions'>
+        <ul class='game-actions-list'>
+            <li>
+                <button class='button btn btn-primary'
+                data-ng-click='vm.newGame()'>new game</button>
+            </li>
+        </ul>
+    </section>
+
+    <section class="game-messages" data-ng-if="vm.status">
+        <div class="alert alert-info alert-dismissible" role="alert">{{ ::vm.status }}</div>
+    </section>
+
+    <section class="players">
+        <article class="player" data-ng-repeat="player in vm.players track by player.id">
+            <h3>{{ ::player.name }}</h3>
+
+            <section
+            data-ng-class="player.name | lowercase"
+            data-ng-repeat="hand in player.hands">
+                <span
+                data-ng-repeat="card in hand.cards track by card.id"
+                data-ng-class="{ disabled: !card.visible }">
+                    <span>{{ card.number }}</span>
+                    <span>{{ card.suit }}</span>
+                </span>
+
+                <article>Score: {{ hand.score }}</article>
+
+                <section class="hand-actions" data-ng-if="player.id !== 0">
+                    <ul class="hand-actions-list">
+                        <li>
+                            <button class='btn btn-hit'
+                            data-ng-click='vm.hit(player, $index)'
+                            data-ng-disabled='!hand.active'>hit</button>
+                        </li>
+                        <li>
+                            <button class='btn btn-stand'
+                            data-ng-click='vm.stand(player, $index)'
+                            data-ng-disabled='!hand.active'>stand</button>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+        </article>
+    </section>
+</article>

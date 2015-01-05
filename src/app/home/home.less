@@ -1,0 +1,46 @@
+#home {
+    .make-row();
+    padding-top: @padding-base-vertical;
+
+    .page-title {
+        .lead;
+        .text-center;
+    }
+
+    .game-actions,
+    .game-messages {
+        .text-center;
+    }
+
+    .game-actions,
+    .game-messages,
+    .players {
+        .make-xs-column(12);
+    }
+
+    .game-actions {
+
+        .game-actions-list {
+            .list-inline;
+            .list-unstyled;
+
+            .btn { .text-uppercase; }
+        }
+    }
+
+    .hand-actions {
+
+        .hand-actions-list {
+            .list-inline;
+            .list-unstyled;
+
+            .btn {
+                .btn-sm;
+                .text-uppercase;
+
+                &.btn-hit { .btn-success; }
+                &.btn-stand { .btn-danger; }
+            }
+        }
+    }
+}
