@@ -1,6 +1,8 @@
 blackjack
 =========
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/xavifuefer/blackjack.svg)](https://greenkeeper.io/)
+
 Blackjack/21 type game
 
 1. It’s a one player only game.
